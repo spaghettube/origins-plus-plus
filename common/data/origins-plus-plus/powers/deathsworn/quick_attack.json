@@ -1,6 +1,6 @@
 {
 	"type":"origins:active_self",
-	"loading_priority":4,
+	"loading_priority":7,
 	"entity_action":{
 		"type":"origins:raycast",
 		"block":false,
@@ -12,11 +12,11 @@
 			"actions":[
 				{
 				"type":"origins:execute_command",
-				"command":"data remove storage origins-plus-plus:temp Motion"
+				"command":"data remove storage origins-plus-plus:deathsworn Motion"
 				},
 				{
 				"type":"origins:execute_command",
-				"command":"resource change @s origins-plus-plus:deathsworn/soul_bar -30"
+				"command":"resource change @s origins-plus-plus:deathsworn/soul_bar -40"
 				}
 			]
 		},

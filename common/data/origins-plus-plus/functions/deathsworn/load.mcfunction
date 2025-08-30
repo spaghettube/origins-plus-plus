@@ -14,6 +14,5 @@ scoreboard objectives add Minions_Deployed dummy
 scoreboard objectives add Deathsworn_Health dummy
 
 function origins-plus-plus:deathsworn/armor_stand
-function origins-plus-plus:deathsworn/clear
 
 team add deathsworn "Necromancers"

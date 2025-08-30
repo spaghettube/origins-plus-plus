@@ -1,7 +1,8 @@
 {
 	"type":"origins:action_over_time",
 	"interval":4,
-	"loading_priority":5,
+	"hidden":true,
+	"loading_priority":7,
 	"entity_action":{
 		"type":"origins:and",
 		"actions":[

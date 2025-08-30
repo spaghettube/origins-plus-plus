@@ -1,6 +1,6 @@
 {
 	"type":"origins:multiple",
-	"loading_priority":4,
+	"loading_priority":7,
 	"bar":{
 		"type":"origins:resource",
 		"min":0,
@@ -15,7 +15,7 @@
 		"entity_action":{
 			"type":"origins:change_resource",
 			"resource":"*:*_bar",
-			"change":40
+			"change":50
 		},
 		"cooldown":1
 	},

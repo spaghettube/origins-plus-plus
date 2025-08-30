@@ -1,4 +1,13 @@
-#something weird on origins powers' side is happening, so here's a function deduplication system. no biggie, everything gets reset in the end
-execute if entity @s[tag=1] run function origins-plus-plus:deathsworn/freeze_apply
-execute unless entity @s[tag=2] run tag @s add 1
-tag @s remove 2
+#first run: NaN*NaN=0 ; 0-1=-1
+#second run: -1*-1=1 ; 1-1=0
+#loop
+scoreboard players operation @s Deathsworn_Toggle *= @s Deathsworn_Toggle
+scoreboard players remove @s Deathsworn_Toggle 1
+
+#if -1, freeze
+execute if score @s Deathsworn_Toggle matches -1 run power grant @s origins-plus-plus:deathsworn/freeze
+execute if score @s Deathsworn_Toggle matches -1 run tellraw @a[tag=Freeze_Actor,limit=1] [ {"selector":"@s"}, {"text":": ","color":"gray"}, {"text":"I'll stay here.","color":"dark_purple"}]
+
+#if 0, unfreeze
+execute if score @s Deathsworn_Toggle matches 0 run power revoke @s origins-plus-plus:deathsworn/freeze
+execute if score @s Deathsworn_Toggle matches 0 run tellraw @a[tag=Freeze_Actor,limit=1] [ {"selector":"@s"}, {"text":": ","color":"gray"}, {"text":"Waiting for your next order.","color":"dark_purple"}]

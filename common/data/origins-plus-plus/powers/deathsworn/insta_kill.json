@@ -1,0 +1,32 @@
+{
+	"type":"origins:action_on_hit",
+	"key":"key.attack",
+	"loading_priority":8,
+	"bientity_action":{
+		"type":"origins:target_action",
+		"action":{
+			"type":"origins:execute_command",
+			"command":"execute if score @s UUID0 = @a[limit=1] UUID0 if score @s UUID1 = @a[limit=1] UUID1 run kill"
+		}
+	},
+	"bientity_condition":{
+		"type":"origins:and",
+		"conditions":[
+			{
+			"type":"origins:target_condition",
+			"condition":{
+				"type":"origins:command",
+				"command":"execute if entity @s[tag=Deathsworn_Minion]",
+				"comparison":"==",
+				"compare_to":1
+				}
+			},
+			{
+			"type":"origins:actor_condition",
+			"condition":{
+				"type":"origins:sneaking"
+				}
+			}
+		]
+	}
+}
