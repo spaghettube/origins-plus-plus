@@ -1,6 +1,5 @@
 {
 	"type":"origins:action_on_hit",
-	"key":"key.attack",
 	"loading_priority":8,
 	"bientity_action":{
 		"type":"origins:target_action",
@@ -28,5 +27,6 @@
 				}
 			}
 		]
-	}
+	},
+	"key":"key.attack"
 }
