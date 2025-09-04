@@ -18,5 +18,5 @@ execute as @e[tag=Buffed_Minion] if entity @s[tag=1s_Passed,tag=!Prevent_Change_
 execute as @e[tag=Buffed_Minion] run tag @s remove Prevent_Change_Down
 
 execute as @e[team=deathsworn] run power grant @s origins-plus-plus:deathsworn/crystallize
-execute as @e[team=deathsworn] run power revoke @s origins-plus-plus:deathsworn/prevent_death
 execute as @e[type=!player,type=!#origins-plus-plus:untargetable] unless entity @s[team=deathsworn] run power grant @s origins-plus-plus:deathsworn/prevent_death
+execute as @e[team=deathsworn] run power revoke @s origins-plus-plus:deathsworn/prevent_death

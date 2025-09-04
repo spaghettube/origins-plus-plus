@@ -4,7 +4,12 @@
 	"entity_action":{
 		"type":"origins:execute_command",
 		"command":"tag @s add Deathsworn_Prevent_Death"
-		}
+	},
+	"condition":{
+		"type":"origins:command",
+		"command":"attribute @s minecraft:generic.attack_damage get",
+		"comparison":">",
+		"compare_to":0
 	},
 	"damage_condition":{
 		"type":"origins:attacker",

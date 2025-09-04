@@ -1,7 +1,7 @@
 {
 	"type":"origins:action_on_entity_use",
 	"hidden":true,
-	"loading_priority":10,
+	"loading_priority":11,
 	"bientity_action":{
 		"type":"origins:and",
 		"actions":[
@@ -16,7 +16,7 @@
 			"type":"origins:target_action",
 			"action":{
 				"type":"origins:execute_command",
-				"command":"say a"
+				"command":"function origins-plus-plus:deathsworn/freeze"
 				}
 			},
 			{
@@ -69,5 +69,8 @@
 				}
 			}
 		]
-	}
+	},
+	"hands":[
+		"main_hand"
+	]
 }
