@@ -16,3 +16,7 @@ execute as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity 
 execute as @e[tag=Buffed_Minion] if entity @s[tag=1s_Passed] run power remove @s origins-plus-plus:deathsworn/1s_timer
 execute as @e[tag=Buffed_Minion] if entity @s[tag=1s_Passed,tag=!Prevent_Change_Down] run function origins-plus-plus:deathsworn/buff_change_down
 execute as @e[tag=Buffed_Minion] run tag @s remove Prevent_Change_Down
+
+execute as @e[team=deathsworn] run power grant @s origins-plus-plus:deathsworn/crystallize
+execute as @e[team=deathsworn] run power revoke @s origins-plus-plus:deathsworn/prevent_death
+execute as @e[type=!player,type=!#origins-plus-plus:untargetable] unless entity @s[team=deathsworn] run power grant @s origins-plus-plus:deathsworn/prevent_death

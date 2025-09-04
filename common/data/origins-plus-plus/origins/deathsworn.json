@@ -9,15 +9,14 @@
 		"origins-plus-plus:deathsworn/buff_toggle",
 		"origins-plus-plus:deathsworn/carry",
 		"origins-plus-plus:deathsworn/command",
+		"origins-plus-plus:deathsworn/crystallize",
 		"origins-plus-plus:deathsworn/count_minions",
-		"origins-plus-plus:deathsworn/freeze_toggle",
 		"origins-plus-plus:deathsworn/insta_kill",
 		"origins-plus-plus:deathsworn/join_team",
 		"origins-plus-plus:deathsworn/modify_health",
 		"origins-plus-plus:deathsworn/night_lover",
 		"origins-plus-plus:deathsworn/no_melee",
 		"origins-plus-plus:deathsworn/no_trades",
-		"origins-plus-plus:deathsworn/petrified_heart",
 		"origins-plus-plus:deathsworn/player_trophy",
 		"origins-plus-plus:deathsworn/quick_attack",
 		"origins-plus-plus:deathsworn/soul",
@@ -26,6 +25,6 @@
 		"origins-plus-plus:deathsworn/tp_to_owner"
 	],
 	"icon":"minecraft:nether_wart_block",
-	"loading_priority":8,
+	"loading_priority":11,
 	"impact":3
 }

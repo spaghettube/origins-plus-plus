@@ -1,0 +1,106 @@
+{
+	"type":"origins:action_on_hit",
+	"loading_priority":11,
+	"bientity_action":{
+		"type":"origins:and",
+		"actions":[
+			{
+			"type":"origins:actor_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute if entity @s[type=player] run tag @s add Crystallize_Actor"
+				}
+			},
+			{
+			"type":"origins:actor_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] UUID0 if score @s UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] UUID1 run tag @a[team=deathsworn,sort=nearest,distance=..0.1] add Crystallize_Actor"
+				}
+			},
+			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"function origins-plus-plus:deathsworn/crystallize-id"
+				}
+			},
+			{
+			"type":"origins:actor_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute if entity @s[type=player] run tag @s remove Crystallize_Actor"
+				}
+			},
+			{
+			"type":"origins:actor_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] UUID0 if score @s UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] UUID1 run tag @a[team=deathsworn,sort=nearest,distance=..0.1] remove Crystallize_Actor"
+				}
+			}	
+		]
+	},
+	"bientity_condition":{
+		"type":"origins:and",
+		"conditions":[
+			{
+			"type":"origins:target_condition",
+			"condition":{
+				"type":"origins:or",	
+				"conditions":[
+						{
+	    					"type":"origins:command",
+						"command":"execute if entity @s[tag=Deathsworn_Prevent_Death]",
+						"comparison":"==",
+						"compare_to":1
+						},
+						{
+						"type":"origins:command",
+						"command":"execute if entity @s[type=player]",
+						"comparison":"==",
+						"compare_to":1
+						}
+					]
+				}
+			},
+			{
+			"type":"origins:target_condition",
+			"condition":{
+    				"type":"origins:in_tag",
+    				"tag":"origins-plus-plus:no_crystal",
+				"inverted":true
+				}
+			},
+			{
+			"type":"origins:target_condition",
+			"condition":{
+				"type":"origins:command",
+				"command":"execute unless entity @s[tag=Deathsworn_Minion]",
+				"comparison":"==",
+				"compare_to":1
+				}
+			},
+			{
+			"type":"origins:target_condition",
+			"condition":{
+				"type":"origins:or",	
+				"conditions":[
+						{
+						"type":"origins:command",
+						"command":"attribute @s minecraft:generic.attack_damage get",
+						"comparison":">",
+						"compare_to":0
+						},
+						{
+						"type":"origins:command",
+						"command":"execute if entity @s[type=player]",
+						"comparison":"==",
+						"compare_to":1
+						}
+					]
+				}
+			}
+		]
+	}
+}

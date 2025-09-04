@@ -5,6 +5,6 @@
 	"modifier":{
 		"operation":"set_total",
 		"resource":"origins-plus-plus:deathsworn/count_minions_resource",
-		"value":0
+		"value":20
 	}
 }

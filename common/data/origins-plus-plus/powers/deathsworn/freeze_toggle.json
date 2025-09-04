@@ -1,7 +1,7 @@
 {
 	"type":"origins:action_on_entity_use",
 	"hidden":true,
-	"loading_priority":8,
+	"loading_priority":10,
 	"bientity_action":{
 		"type":"origins:and",
 		"actions":[
@@ -16,7 +16,28 @@
 			"type":"origins:target_action",
 			"action":{
 				"type":"origins:execute_command",
-				"command":"function origins-plus-plus:deathsworn/freeze"
+				"command":"say a"
+				}
+			},
+			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute at @a[tag=Freeze_Actor] unless score @s UUID0 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] UUID0 unless score @s UUID1 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] UUID1 run tellraw @a[tag=Freeze_Actor,limit=1] [ {\"selector\":\"@s\"}, {\"text\":\": \",\"color\":\"gray\"}, {\"text\":\"Keep on walking.\",\"color\":\"dark_purple\"}]"
+				}
+			},
+			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute at @a[tag=Freeze_Actor] unless score @s UUID0 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] UUID0 unless score @s UUID1 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] UUID1 run damage @a[tag=Freeze_Actor,limit=1] 0 minecraft:generic @s"
+				}
+			},
+			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute at @a[tag=Freeze_Actor] unless score @s UUID0 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] UUID0 unless score @s UUID1 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] UUID1 run playsound minecraft:entity.ravager.death hostile @a[distance=..16] ~ ~ ~ 2 2"
 				}
 			},
 			{
@@ -29,11 +50,24 @@
 		]
 	},
 	"bientity_condition":{
-		"type":"origins:actor_condition",
-		"condition":{
-			"type":"origins:sneaking",
-			"inverted":true
+		"type":"origins:and",
+		"conditions":[
+			{
+			"type":"origins:actor_condition",
+			"condition":{
+				"type":"origins:sneaking",
+				"inverted":true
+				}
+			},
+			{
+			"type":"origins:target_condition",
+			"condition":{
+				"type":"origins:command",
+				"command":"execute if entity @s[tag=Deathsworn_Minion]",
+				"comparison":"==",
+				"compare_to":1
+				}
 			}
-		}
+		]
 	}
 }

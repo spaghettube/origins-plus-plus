@@ -4,7 +4,6 @@ execute as @e[tag=Commanded_Minion] run damage @s 0 minecraft:cramming by @e[lim
 execute as @e[tag=Commanded_Minion] run attribute @s minecraft:generic.knockback_resistance modifier remove 1-1-1-1-1
 
 execute as @e[tag=Commanded_Minion,limit=1] at @s run playsound minecraft:entity.ravager.roar hostile @a[distance=..16] ~ ~ ~ 1.2 2
-tag @a remove Commander_Actor
 tag @s remove Commanded_Minion
 
 say aggro
