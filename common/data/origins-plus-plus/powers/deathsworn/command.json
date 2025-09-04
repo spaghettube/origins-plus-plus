@@ -1,6 +1,6 @@
 {
 	"type":"origins:active_self",
-	"loading_priority":8,
+	"loading_priority":11,
 	"entity_action":{
 		"type":"origins:raycast",
 		"distance":16,
@@ -47,13 +47,6 @@
 				"action":{
 					"type":"origins:execute_command",
 					"command":"tag @s remove Target"
-					}
-				},
-				{
-				"type":"origins:actor_action",
-				"action":{
-					"type":"origins:execute_command",
-					"command":"tag @s remove Commander_Actor"
 					}
 				}
 			]

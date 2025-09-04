@@ -5,5 +5,6 @@ execute as @e[tag=Commanded_Minion] run attribute @s minecraft:generic.knockback
 
 execute as @e[tag=Commanded_Minion,limit=1] at @s run playsound minecraft:entity.ravager.roar hostile @a[distance=..16] ~ ~ ~ 1.2 2
 tag @s remove Commanded_Minion
+tag @a remove Commander_Actor
 
 say aggro
