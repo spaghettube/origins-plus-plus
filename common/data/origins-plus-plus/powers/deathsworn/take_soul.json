@@ -1,12 +1,9 @@
 {
 	"type":"origins:prevent_death",
-	"loading_priority":4,
+	"loading_priority":13,
 	"entity_action":{
 		"type":"origins:and",
 		"actions":[
-			{
-				"type":"origins:clear_effect"
-			},
 			{
 				"type":"origins:heal",
 				"amount":3
@@ -18,9 +15,9 @@
 		]
 	},
 	"condition":{
-		"type":"origins:command",
-		"command":"execute if entity @e[tag=Deathsworn_Minion,distance=..16]",
-		"comparison":">=",
-		"compare_to":2
+    		"type": "origins:scoreboard",
+    		"objective": "Minions_Deployed",
+    		"comparison": ">=",
+    		"compare_to": 2
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"type":"origins:action_on_hit",
-	"loading_priority":13,
+	"loading_priority":14,
 	"bientity_action":{
 		"type":"origins:and",
 		"actions":[
@@ -105,6 +105,15 @@
 			"condition":{
 				"type":"origins:command",
 				"command":"execute unless entity @s[tag=Deathsworn_Minion]",
+				"comparison":"==",
+				"compare_to":1
+				}
+			},
+			{
+			"type":"origins:target_condition",
+			"condition":{
+				"type":"origins:command",
+				"command":"execute at @s at @e[distance=..0.1,limit=1] unless score @s UUID0 = @e[distance=..0.1,limit=1] UUID0 unless score @s UUID1 = @e[distance=..0.1,limit=1] UUID1",
 				"comparison":"==",
 				"compare_to":1
 				}

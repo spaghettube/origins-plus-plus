@@ -5,6 +5,8 @@ execute as @e[tag=Deathsworn_Minion] at @s run particle minecraft:witch ~ ~1 ~ 0
 execute as @a[team=deathsworn] at @s if score @s UUID0 = @e[tag=Standby_Minion,limit=1] UUID0 if score @s UUID1 = @e[tag=Standby_Minion,limit=1] UUID1 run tp @e[tag=Standby_Minion] ~ -70 ~
 
 
+#in case the tag wasnt cleared
+execute as @a[tag=Skip_Quick_Attack] run tag @s remove Quick_Attack_Actor
 #damage function for launched minions
 execute as @e[tag=Quick_Attack_Minion] run function origins-plus-plus:deathsworn/quick-attack-damage
 
@@ -26,4 +28,4 @@ execute as @e[tag=Buffed_Minion] run tag @s remove Prevent_Change_Down
 
 
 #prevent all mobs' death if killed by a deathsworn
-execute as @e[type=!player,type=!#origins-plus-plus:untargetable] unless entity @s[team=deathsworn] run power grant @s origins-plus-plus:deathsworn/prevent_death
+execute as @e[type=!player,tag=!Standby_Minion,tag=!Deathsworn_Minion,type=!#origins-plus-plus:untargetable] run power grant @s origins-plus-plus:deathsworn/prevent_death

@@ -1,6 +1,8 @@
+# for player head handling refer to function player_trophy
 data modify entity @s ArmorItems[3] set from storage origins-plus-plus:deathsworn player_trophy
 data remove storage origins-plus-plus:deathsworn player_trophy
 
+#store killed player's uuid
 execute store result score @s Killed_UUID0 run data get entity @a[tag=Deathsworn_Killed_Player,limit=1] UUID[0]
 execute store result score @s Killed_UUID1 run data get entity @a[tag=Deathsworn_Killed_Player,limit=1] UUID[1]
 
@@ -10,7 +12,19 @@ tag @s add Standby_Minion
 scoreboard players add @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count 1
 scoreboard players operation @s Minion_Count = @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count
 data modify entity @s DeathLootTable set value "minecraft:empty"
+power remove @s origins-plus-plus:deathsworn/prevent_death
 
+#if the minion kills a mob, give the player the heart, and a portion of SOUL
+power grant @s origins-plus-plus:deathsworn/crystallize
+
+#in case the mob naturally spawns with gear, havent seen it happen yet in testing, but it can happen
+data remove entity @s ArmorItems[0]
+data remove entity @s ArmorItems[1]
+data remove entity @s ArmorItems[2]
+data remove entity @s HandItems[0]
+data remove entity @s HandItems[1]
+
+#match the stored inventory to the player minion
 execute at @s as @e[tag=Deathsworn_Armor_Stand,sort=nearest,limit=1] if score @s Killed_UUID0 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1,sort=nearest] Killed_UUID0 if score @s Killed_UUID1 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1,sort=nearest] Killed_UUID1 run tag @s add Matched_Deathsworn_Armor_Stand
 execute as @e[tag=Matched_Deathsworn_Armor_Stand] if score @s Killed_UUID0 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1] Killed_UUID0 if score @s Killed_UUID1 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1] Killed_UUID1 run say matched ids
 
@@ -86,5 +100,11 @@ execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result entity @e
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.AD float 1 run attribute @s minecraft:generic.attack_damage get
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run data modify entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.player set from entity @s ArmorItems[3].tag.SkullOwner.Name
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run data merge entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] {Item:{tag:{Saved_from_Death:1b}}}
+
+#setup for cleaning minion and item if its not picked up
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run summon minecraft:armor_stand ~ ~ ~ {Tags:["Living_Placeholder"],Invisible:false,Marker:true,Invulnerable:true}
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Minion_Count run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] UUID0 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] UUID0
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] UUID1 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] UUID1
 
 execute as @a[tag=Deathsworn_Killed_Player,sort=nearest,limit=1] run tag @s remove Deathsworn_Killed_Player
