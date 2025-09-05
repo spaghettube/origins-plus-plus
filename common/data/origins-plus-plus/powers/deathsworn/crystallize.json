@@ -5,6 +5,20 @@
 		"type":"origins:and",
 		"actions":[
 			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"power grant @s origins-plus-plus:deathsworn/death_timer_short"
+				}
+			},
+			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"tag @s add Death_Timer_Start"
+				}
+			},
+			{
 			"type":"origins:actor_action",
 			"action":{
 				"type":"origins:execute_command",

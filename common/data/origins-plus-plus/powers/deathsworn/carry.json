@@ -1,6 +1,6 @@
 {
 	"type":"origins:action_on_entity_use",	
-	"loading_priority":8,
+	"loading_priority":12,
 	"bientity_action":{
 		"type":"origins:and",
 		"actions":[
@@ -9,6 +9,20 @@
 			"action":{
 				"type":"origins:execute_command",
 				"command":"tag @s add Crystallize_Actor"
+				}
+			},
+			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"power grant @s origins-plus-plus:deathsworn/death_timer_long"
+				}
+			},
+			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"tag @s add Death_Timer_Start"
 				}
 			},
 			{

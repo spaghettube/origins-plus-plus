@@ -1,6 +1,6 @@
 tag @s add Quick_Attack_Actor
 execute summon minecraft:block_display run tag @s add Deathsworn_Marker
-tp @e[tag=Deathsworn_Marker,limit=1] ^ ^1.62 ^
+tp @e[tag=Deathsworn_Marker,limit=1] ^ ^ ^
 
 #a failsafe if the origins raycast bugs out
 execute as @e[tag=Deathsworn_Marker,limit=1] if data storage origins-plus-plus:deathsworn Motion run kill
