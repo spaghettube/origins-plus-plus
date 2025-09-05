@@ -9,7 +9,6 @@ data merge entity @s {NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b}
 tag @s add Standby_Minion
 scoreboard players add @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count 1
 scoreboard players operation @s Minion_Count = @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count
-data modify entity @s CanPickUpLoot set value 1b
 data modify entity @s DeathLootTable set value "minecraft:empty"
 
 execute at @s as @e[tag=Deathsworn_Armor_Stand,sort=nearest,limit=1] if score @s Killed_UUID0 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1,sort=nearest] Killed_UUID0 if score @s Killed_UUID1 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1,sort=nearest] Killed_UUID1 run tag @s add Matched_Deathsworn_Armor_Stand

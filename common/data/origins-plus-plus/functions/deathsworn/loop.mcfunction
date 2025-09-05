@@ -11,6 +11,8 @@ execute as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity 
 execute as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity @s Thrower if data entity @s Item.tag{Saved_from_Death:1b} run data merge entity @s {Thrower:[I;0,0,0,0]}
 execute as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity @s {Thrower:[I;0,0,0,0]} run data merge entity @s {Item:{tag:{Saved_from_Death:0b}}}
 
+#appraisal name
+execute as @a[team=deathsworn] if data entity @s SelectedItem.tag.Minion_Count run function origins-plus-plus:deathsworn/appraisal
 
 #stop the clock if no updates happen by the player
 execute as @e[tag=Buffed_Minion] if entity @s[tag=1s_Passed] run power remove @s origins-plus-plus:deathsworn/1s_timer

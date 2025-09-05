@@ -1,6 +1,6 @@
 {
 	"type":"origins:multiple",
-	"loading_priority":11,
+	"loading_priority":12,
 	"bar":{
 		"type":"origins:resource",
 		"min":0,

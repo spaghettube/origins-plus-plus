@@ -1,9 +1,23 @@
 {
 	"type":"origins:action_on_hit",
-	"loading_priority":11,
+	"loading_priority":13,
 	"bientity_action":{
 		"type":"origins:and",
 		"actions":[
+			{
+			"type":"origins:actor_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute if entity @s[type=player] run resource change @s origins-plus-plus:deathsworn/soul_bar 50"
+				}
+			},
+			{
+			"type":"origins:actor_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] UUID0 if score @s UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] UUID1 run resource change @s origins-plus-plus:deathsworn/soul_bar 20"
+				}
+			},
 			{
 			"type":"origins:actor_action",
 			"action":{

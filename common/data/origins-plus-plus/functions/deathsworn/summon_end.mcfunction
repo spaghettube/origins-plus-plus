@@ -5,6 +5,7 @@ data modify entity @s NoAI set value false
 data modify entity @s Invulnerable set value false
 data modify entity @s PersistenceRequired set value false
 data modify entity @s Silent set value false
+data modify entity @s CanPickUpLoot set value 1b
 scale multiply pehkui:interaction_box_width -1
 scale multiply pehkui:interaction_box_height -1
 scale multiply pehkui:hitbox_width -1

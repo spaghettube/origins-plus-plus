@@ -1,0 +1,2 @@
+execute store result score @s Minion_Count_temp run data get entity @s SelectedItem.tag.Minion_Count
+execute as @e[tag=Standby_Minion] if score @s Minion_Count = @a[team=deathsworn,limit=1] Minion_Count_temp if score @s UUID0 = @a[team=deathsworn,limit=1] UUID0 if score @s UUID1 = @a[team=deathsworn,limit=1] UUID1 run tag @s add Appraisal_Name
