@@ -1,6 +1,6 @@
 {
 	"type":"origins:action_over_time",
-	"loading_priority":12,
+	"loading_priority":14,
 	"entity_action":{
 		"type":"origins:execute_command",
 		"command":"function origins-plus-plus:deathsworn/appraisal_mob"

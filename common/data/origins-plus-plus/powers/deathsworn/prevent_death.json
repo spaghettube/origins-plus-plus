@@ -1,6 +1,6 @@
 {
 	"type":"origins:prevent_death",
-	"loading_priority":12,
+	"loading_priority":14,
 	"entity_action":{
 		"type":"origins:execute_command",
 		"command":"tag @s add Deathsworn_Prevent_Death"

@@ -1,6 +1,6 @@
 {
 	"type":"origins:toggle",
-	"loading_priority":8,
+	"loading_priority":14,
 	"key":"key.origins.secondary_active",
 	"active_by_default":false
 }

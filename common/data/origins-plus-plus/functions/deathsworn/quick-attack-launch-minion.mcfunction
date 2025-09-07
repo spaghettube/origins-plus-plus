@@ -1,6 +1,6 @@
 function origins-plus-plus:deathsworn/summon_end
-scale delay set pehkui:model_height 0
 scale delay set pehkui:model_width 0
+scale delay set pehkui:model_height 0
 
 data modify entity @s Pos set from storage origins-plus-plus:deathsworn temppos1
 

@@ -1,0 +1,9 @@
+{
+	"values":[
+		"#c:chests",
+		{
+		"id":"#c:barrels",
+		"required":false
+		}
+	]
+}

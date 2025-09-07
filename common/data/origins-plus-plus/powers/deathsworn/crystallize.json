@@ -29,7 +29,7 @@
 			"type":"origins:actor_action",
 			"action":{
 				"type":"origins:execute_command",
-				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] UUID0 if score @s UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] UUID1 run resource change @s origins-plus-plus:deathsworn/soul_bar 20"
+				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s Owner_UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] Owner_UUID1 run resource change @s origins-plus-plus:deathsworn/soul_bar 20"
 				}
 			},
 			{
@@ -43,7 +43,7 @@
 			"type":"origins:actor_action",
 			"action":{
 				"type":"origins:execute_command",
-				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] UUID0 if score @s UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] UUID1 run tag @a[team=deathsworn,sort=nearest,distance=..0.1] add Crystallize_Actor"
+				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s Owner_UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] Owner_UUID1 run tag @a[team=deathsworn,sort=nearest,distance=..0.1] add Crystallize_Actor"
 				}
 			},
 			{
@@ -64,7 +64,7 @@
 			"type":"origins:actor_action",
 			"action":{
 				"type":"origins:execute_command",
-				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] UUID0 if score @s UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] UUID1 run tag @a[team=deathsworn,sort=nearest,distance=..0.1] remove Crystallize_Actor"
+				"command":"execute unless entity @s[type=player] at @a[team=deathsworn] if score @s Owner_UUID0 = @a[team=deathsworn,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[team=deathsworn,limit=1,distance=..0.1] Owner_UUID1 run tag @a[team=deathsworn,sort=nearest,distance=..0.1] remove Crystallize_Actor"
 				}
 			}	
 		]
@@ -113,7 +113,7 @@
 			"type":"origins:target_condition",
 			"condition":{
 				"type":"origins:command",
-				"command":"execute at @s at @e[distance=..0.1,limit=1] unless score @s UUID0 = @e[distance=..0.1,limit=1] UUID0 unless score @s UUID1 = @e[distance=..0.1,limit=1] UUID1",
+				"command":"execute at @s at @e[distance=..0.1,limit=1] unless score @s Owner_UUID0 = @e[distance=..0.1,limit=1] Owner_UUID0 unless score @s Owner_UUID1 = @e[distance=..0.1,limit=1] Owner_UUID1",
 				"comparison":"==",
 				"compare_to":1
 				}
