@@ -11,6 +11,7 @@ data merge entity @s {NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b}
 tag @s add Standby_Minion
 scoreboard players add @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count 1
 scoreboard players operation @s Minion_Count = @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count
+
 data modify entity @s DeathLootTable set value "minecraft:empty"
 power remove @s origins-plus-plus:deathsworn/prevent_death
 
@@ -87,24 +88,24 @@ scale multiply pehkui:interaction_box_height -1
 
 #item stuff
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run summon minecraft:item ~ ~ ~ {Tags:["Petrified_Heart"],Glowing:1b,PickupDelay:1,Item:{id:"minecraft:heart_of_the_sea",Count:1b,tag:{CustomModelData:1,display:{Name:'{"translate":"origins-plus-plus.deathsworn.petrified_heart","color":"#F01E67","bold":false,"italic":false}'}}}}
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.Minion_Count int 1 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run data merge entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] {Item:{tag:{UUID0:0}}}
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run data merge entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] {Item:{tag:{UUID1:0}}}
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.UUID0 int 1 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] UUID0
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.UUID1 int 1 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] UUID1
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run data modify entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Owner set from entity @a[tag=Crystallize_Actor,sort=nearest,limit=1] UUID
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] Item.tag.Minion_Count int 1 run scoreboard players get @s Minion_Count
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run data merge entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] {Item:{tag:{UUID0:0}}}
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run data merge entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] {Item:{tag:{UUID1:0}}}
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] Item.tag.UUID0 int 1 run scoreboard players get @s UUID0
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] Item.tag.UUID1 int 1 run scoreboard players get @s UUID1
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run data modify entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] Owner set from entity @a[tag=Crystallize_Actor,sort=nearest,limit=1] UUID
 
 #appraisal support
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.Health float 1 run data get entity @s Health
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.Armor float 1 run attribute @s minecraft:generic.armor get
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.AD float 1 run attribute @s minecraft:generic.attack_damage get
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run data modify entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] Item.tag.player set from entity @s ArmorItems[3].tag.SkullOwner.Name
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run data merge entity @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1] {Item:{tag:{Saved_from_Death:1b}}}
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] Item.tag.Health float 1 run data get entity @s Health
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] Item.tag.Armor float 1 run attribute @s minecraft:generic.armor get
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] Item.tag.AD float 1 run attribute @s minecraft:generic.attack_damage get
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run data modify entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] Item.tag.player set from entity @s ArmorItems[3].tag.SkullOwner.Name
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run data merge entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] {Item:{tag:{Saved_from_Death:1b}}}
 
 #setup for cleaning minion and item if its not picked up
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] run summon minecraft:armor_stand ~ ~ ~ {Tags:["Living_Placeholder"],Invisible:false,Marker:true,Invulnerable:true}
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Minion_Count run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] UUID0 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] UUID0
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] UUID1 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] UUID1
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run summon minecraft:armor_stand ~ ~ ~ {Tags:["Living_Placeholder"],Invisible:false,Marker:true,Invulnerable:true}
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Minion_Count run scoreboard players get @s Minion_Count
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] UUID0 run scoreboard players get @s UUID0
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] UUID1 run scoreboard players get @s UUID1
 
 execute as @a[tag=Deathsworn_Killed_Player,sort=nearest,limit=1] run tag @s remove Deathsworn_Killed_Player

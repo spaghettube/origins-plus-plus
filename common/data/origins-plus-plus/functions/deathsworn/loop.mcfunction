@@ -29,3 +29,7 @@ execute as @e[tag=Buffed_Minion] run tag @s remove Prevent_Change_Down
 
 #prevent all mobs' death if killed by a deathsworn
 execute as @e[type=!player,tag=!Standby_Minion,tag=!Deathsworn_Minion,type=!#origins-plus-plus:untargetable] run power grant @s origins-plus-plus:deathsworn/prevent_death
+
+
+#if a player stores a heart, kill item and minion
+execute as @a[team=deathsworn] at @s run function origins-plus-plus:deathsworn/clear_check
