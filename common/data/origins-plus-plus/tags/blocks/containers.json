@@ -1,8 +1,27 @@
 {
 	"values":[
-		"#c:chests",
+		{
+		"id":"#c:chests",
+		"required":false
+		},
 		{
 		"id":"#c:barrels",
+		"required":false
+		},
+		{
+		"id":"#c:shulker_boxes",
+		"required":false
+		},
+		{
+		"id":"#origins-plus-plus-modded-support:chests",
+		"required":false
+		},
+		{
+		"id":"#origins-plus-plus-modded-support:barrels",
+		"required":false
+		},
+		{
+		"id":"#origins-plus-plus-modded-support:shulker_boxes",
 		"required":false
 		}
 	]

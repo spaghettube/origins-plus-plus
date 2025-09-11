@@ -5,12 +5,6 @@ execute as @e[tag=Deathsworn_Minion] at @s run particle minecraft:witch ~ ~1 ~ 0
 execute as @a[team=deathsworn] at @s if score @s Owner_UUID0 = @e[tag=Standby_Minion,limit=1] Owner_UUID0 if score @s Owner_UUID1 = @e[tag=Standby_Minion,limit=1] Owner_UUID1 run tp @e[tag=Standby_Minion] ~ -70 ~
 
 
-#in case the tag wasnt cleared
-execute as @a[tag=Skip_Quick_Attack] run tag @s remove Quick_Attack_Actor
-#damage function for launched minions
-execute as @e[tag=Quick_Attack_Minion] run function origins-plus-plus:deathsworn/quick-attack-damage
-
-
 #clear dropped hearts
 execute as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity @s Thrower if data entity @s Thrower if data entity @s Item.tag{Saved_from_Death:0b} at @a[sort=nearest,limit=1] run function origins-plus-plus:deathsworn/clear
 execute as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity @s Thrower if data entity @s Item.tag{Saved_from_Death:1b} run data merge entity @s {Thrower:[I;0,0,0,0]}
@@ -19,6 +13,15 @@ execute as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity 
 #clear minions with no heart, in case item dies, tp first
 execute as @e[tag=Living_Placeholder] at @s run tp @s @e[type=item,distance=..1,sort=nearest,nbt={Item:{tag:{Saved_from_Death:1b}}},limit=1]
 execute as @e[tag=Living_Placeholder] at @s unless entity @e[type=item,distance=..1,sort=nearest,nbt={Item:{tag:{Saved_from_Death:1b}}}] run function origins-plus-plus:deathsworn/clear
+
+#if a player stores a heart, kill item and minion
+execute as @a[team=deathsworn] at @s run function origins-plus-plus:deathsworn/clear_check
+
+
+#in case the tag wasnt cleared
+execute as @a[tag=Skip_Quick_Attack] run tag @s remove Quick_Attack_Actor
+#damage function for launched minions
+execute as @e[tag=Quick_Attack_Minion] run function origins-plus-plus:deathsworn/quick-attack-damage
 
 
 #buff: stop the clock if no updates happen by the player
@@ -29,7 +32,3 @@ execute as @e[tag=Buffed_Minion] run tag @s remove Prevent_Change_Down
 
 #prevent all mobs' death if killed by a deathsworn
 execute as @e[type=!player,tag=!Standby_Minion,tag=!Deathsworn_Minion,type=!#origins-plus-plus:untargetable] run power grant @s origins-plus-plus:deathsworn/prevent_death
-
-
-#if a player stores a heart, kill item and minion
-execute as @a[team=deathsworn] at @s run function origins-plus-plus:deathsworn/clear_check
