@@ -808,7 +808,7 @@
 	"power.origins-plus-plus.dark-mage/resource.name":"Barra de Mana",
 	"power.origins-plus-plus.dark-mage/slowness.description":"Você tem lentidão permanente.",
 	"power.origins-plus-plus.dark-mage/slowness.name":"Mago Lento",
-	"power.origins-plus-plus.deathsworn/crystallize.description":"Monstros que você mata largam Corações. Guarde-os, para invocar lacaios!",
+	"power.origins-plus-plus.deathsworn/crystallize.description":"Monstros que você mata largam Corações. Guarde-os, para invocar lacaios! Estes não podem ser largados ou guardados fora do inventário",
 	"power.origins-plus-plus.deathsworn/crystallize.name":"Ataque Cardíaco",
 	"power.origins-plus-plus.deathsworn/player_trophy.description":"Outros jogadores também podem ser seus lacaios.",
 	"power.origins-plus-plus.deathsworn/player_trophy.name":"Ainda Não Acabou!",
