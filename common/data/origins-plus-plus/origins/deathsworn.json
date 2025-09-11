@@ -23,9 +23,10 @@
 		"origins-plus-plus:deathsworn/buff_stop",
 		"origins-plus-plus:deathsworn/count_minions",
 		"origins-plus-plus:deathsworn/join_team",
-		"origins-plus-plus:deathsworn/tp_to_owner"
+		"origins-plus-plus:deathsworn/tp_to_owner",
+		"origins-plus-plus:deathsworn/clear"
 	],
 	"icon":"minecraft:nether_wart_block",
-	"loading_priority":13,
+	"loading_priority":14,
 	"impact":3
 }

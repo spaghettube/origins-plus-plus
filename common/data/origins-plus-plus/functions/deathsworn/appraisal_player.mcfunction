@@ -3,4 +3,4 @@ execute as @e[tag=Standby_Minion] if score @s Minion_Count = @a[team=deathsworn,
 
 title @s actionbar [{"translate":"origins-plus-plus.deathsworn.health","color":"#FF0000","bold":false,"italic":false},{"nbt":"SelectedItem.tag.Health","entity":"@s","color":"#DB251F"},{"text":" | ","color":"white","bold":false,"italic":false},{"translate":"origins-plus-plus.deathsworn.armor","color":"#FF0000","bold":false,"italic":false},{"nbt":"SelectedItem.tag.Armor","entity":"@s","color":"#D11B1B"},{"text":" | ","color":"white"},{"translate":"origins-plus-plus.deathsworn.attack_damage","color":"#FF0000"},{"nbt":"SelectedItem.tag.AD","entity":"@s","interpret":false,"color":"#DB251F"},{"text":" | ","color":"white"},{"translate":"origins-plus-plus.deathsworn.player","color":"#FF0000"},{"nbt":"SelectedItem.tag.player","entity":"@s"}]
 
-tag @s remove Appraisal_Name
+tag @e remove Appraisal_Name
