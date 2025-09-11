@@ -1,7 +1,7 @@
 {
 	"type":"origins:action_on_entity_use",
 	"hidden":true,
-	"loading_priority":14,
+	"loading_priority":15,
 	"bientity_action":{
 		"type":"origins:and",
 		"actions":[
@@ -16,21 +16,21 @@
 			"type":"origins:target_action",
 			"action":{
 				"type":"origins:execute_command",
-				"command":"function origins-plus-plus:deathsworn/freeze"
+				"command":"execute at @a[tag=Freeze_Actor] if score @s Owner_UUID0 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID1 run function origins-plus-plus:deathsworn/freeze"
 				}
 			},
 			{
 			"type":"origins:target_action",
 			"action":{
 				"type":"origins:execute_command",
-				"command":"execute at @a[tag=Freeze_Actor] unless score @s Owner_UUID0 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID0 unless score @s Owner_UUID1 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID1 run tellraw @a[tag=Freeze_Actor,limit=1] [ {\"selector\":\"@s\"}, {\"text\":\": \",\"color\":\"gray\"}, {\"text\":\"Keep on walking.\",\"color\":\"dark_purple\"}]"
+				"command":"execute at @a[tag=Freeze_Actor] unless score @s Owner_UUID0 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID0 unless score @s Owner_UUID1 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID1 run tellraw @a[tag=Freeze_Actor,sort=nearest,limit=1] [ {\"selector\":\"@s\"}, {\"text\":\": \",\"color\":\"gray\"}, {\"translate\":\"origins-plus-plus.deathsworn.freeze_wrong_minion\",\"color\":\"dark_purple\"}]"
 				}
 			},
 			{
 			"type":"origins:target_action",
 			"action":{
 				"type":"origins:execute_command",
-				"command":"execute at @a[tag=Freeze_Actor] unless score @s Owner_UUID0 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID0 unless score @s Owner_UUID1 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID1 run damage @a[tag=Freeze_Actor,limit=1] 0 minecraft:generic @s"
+				"command":"execute at @a[tag=Freeze_Actor] unless score @s Owner_UUID0 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID0 unless score @s Owner_UUID1 = @a[tag=Freeze_Actor,limit=1,distance=..0.1] Owner_UUID1 run damage @a[tag=Freeze_Actor,sort=nearest,limit=1] 0.001 minecraft:generic by @s"
 				}
 			},
 			{
