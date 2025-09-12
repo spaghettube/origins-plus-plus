@@ -2,6 +2,8 @@ team join deathsworn
 tag @s remove Standby_Minion
 tag @s add Deathsworn_Minion
 tag @s remove Appraisal_Name
+power remove @s origins-plus-plus:deathsworn/death_timer_long
+power remove @s origins-plus-plus:deathsworn/death_timer_short
 data modify entity @s NoAI set value false
 data modify entity @s Invulnerable set value false
 data modify entity @s PersistenceRequired set value false
@@ -17,4 +19,3 @@ scale delay set pehkui:model_height 26
 scale easing set pehkui:model_height pehkui:quintic_out
 scale multiply pehkui:model_width -1
 scale multiply pehkui:model_height -1
-

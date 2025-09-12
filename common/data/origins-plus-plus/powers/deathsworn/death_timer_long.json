@@ -1,23 +1,39 @@
 {
 	"type":"origins:action_over_time",
 	"hidden":true,
-	"loading_priority":14,
-	"interval":6000,
+	"loading_priority":15,
+	"interval":60,
 	"entity_action":{
 		"type":"origins:and",
 		"actions":[
 			{
 			"type":"origins:execute_command",
-			"command":"execute if entity @s[tag=Death_Timer_Start] run say killed"
+			"command":"say supposedly killed"
 			},
 			{
 			"type":"origins:execute_command",
-			"command":"execute if entity @s[tag=Death_Timer_Start] run kill"
+			"command":"execute at @a[team=deathsworn] if score @s Owner_UUID0 = @a[team=deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID0 if score @s Owner_UUID1 = @a[team=deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID1 as @a[team=deathsworn,distance=..0.1,sort=nearest] run function origins-plus-plus:deathsworn/clear"
 			},
 			{
 			"type":"origins:execute_command",
-			"command":"execute if entity @s[tag=Death_Timer_Start] at @e[tag=Living_Placeholder] if score @s Minion_Count = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Minion_Count if score @s Owner_UUID0 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID1 run kill @e[tag=Petrified_Heart,distance=..1,sort=nearest,limit=1]"
-			}
+			"command":"execute if entity @s[tag=!Heart_Found,tag=!Deathsworn_Minion] run kill"
+			},
+			{
+			"type":"origins:execute_command",
+			"command":"execute if entity @s[tag=!Heart_Found,tag=!Deathsworn_Minion] at @e[tag=Living_Placeholder] if score @s Minion_Count = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Minion_Count if score @s Owner_UUID0 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID1 run kill @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1]"
+			},
+			{
+			"type":"origins:execute_command",
+			"command":"execute if entity @s[tag=Heart_Found] run say but heart was found"
+			},
+			{
+			"type":"origins:execute_command",
+			"command":"power remove @s origins-plus-plus:deathsworn/death_timer_long"
+			},
+			{
+			"type":"origins:execute_command",
+			"command":"execute if entity @s[tag=Heart_Found] run tag @s remove Heart_Found"
+			}		
 		]
 	}
 }

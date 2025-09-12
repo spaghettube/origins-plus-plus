@@ -10,12 +10,46 @@ execute if entity @s[type=item] run scoreboard players reset @a[sort=nearest,lim
 execute if entity @s[type=item] run kill
 
 
-### clear minions if no updates
-execute if entity @s[tag=Living_Placeholder] at @s as @e[tag=Death_Timer_Start] if score @s Minion_Count = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Minion_Count if score @s Owner_UUID0 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID1 run power remove @s origins-plus-plus:deathsworn/death_timer_short
-execute if entity @s[tag=Living_Placeholder] at @s as @e[tag=Death_Timer_Start] if score @s Minion_Count = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Minion_Count if score @s Owner_UUID0 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID1 run power remove @s origins-plus-plus:deathsworn/death_timer_long
-execute if entity @s[tag=Living_Placeholder] at @s as @e[tag=Death_Timer_Start] if score @s Minion_Count = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Minion_Count if score @s Owner_UUID0 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID1 run say tag removed
-execute if entity @s[tag=Living_Placeholder] at @s at @s as @e[tag=Death_Timer_Start] if score @s Minion_Count = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Minion_Count if score @s Owner_UUID0 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @e[tag=Living_Placeholder,limit=1,distance=..0.1] Owner_UUID1 run tag @s remove Death_Timer_Start
-execute if entity @s[tag=Living_Placeholder] run kill
+### check if item is in inventory, this is only called when the timer of a minion finishes to determine whether the item died, or was picked up instead
+execute if entity @s[type=player] if data entity @s Inventory[0].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[0].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[1].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[1].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[2].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[2].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[3].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[3].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[4].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[4].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[5].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[5].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[6].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[6].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[7].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[7].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[8].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[8].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[9].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[9].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[10].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[10].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[11].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[11].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[12].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[12].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[13].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[13].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[14].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[14].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[15].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[15].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[16].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[16].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[17].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[17].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[18].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[18].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[19].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[19].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[20].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[20].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[21].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[21].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[22].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[22].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[23].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[23].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[24].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[24].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[25].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[25].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[26].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[26].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[27].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[27].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[28].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[28].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[29].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[29].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[30].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[30].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[31].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[31].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[32].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[32].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[33].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[33].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[34].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[34].tag.Minion_Count
+execute if entity @s[type=player] if data entity @s Inventory[35].tag.Minion_Count store result score @s Minion_Count_temp run data get entity @s Inventory[35].tag.Minion_Count
+
+execute if entity @s[type=player] if score @e[distance=..0.1,sort=nearest,limit=1] Minion_Count = @s Minion_Count_temp at @s as @e[tag=Standby_Minion] if score @s Owner_UUID0 = @a[team=deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID0 if score @s Owner_UUID1 = @a[team=deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID1 run tag @s add Heart_Found
+
 
 ### clear minions if heart detected outside inventory
 execute if entity @s[tag=Standby_Minion] if data block ~ ~ ~ Items[0].tag.Minion_Count store result score @s Minion_Count_temp run data get block ~ ~ ~ Items[0].tag.Minion_Count

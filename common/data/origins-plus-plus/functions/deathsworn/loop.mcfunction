@@ -12,7 +12,7 @@ execute if entity @a[team=deathsworn] as @e[type=item] if data entity @s Item.ta
 
 #clear minions with no heart, in case item dies, tp first
 execute if entity @a[team=deathsworn] as @e[tag=Living_Placeholder] at @s run tp @s @e[type=item,distance=..1,sort=nearest,nbt={Item:{tag:{Saved_from_Death:1b}}},limit=1]
-execute if entity @a[team=deathsworn] as @e[tag=Living_Placeholder] at @s unless entity @e[type=item,distance=..1,sort=nearest,nbt={Item:{tag:{Saved_from_Death:1b}}}] run function origins-plus-plus:deathsworn/clear
+execute if entity @a[team=deathsworn] as @e[tag=Living_Placeholder] at @s unless entity @e[type=item,distance=..1,sort=nearest,nbt={Item:{tag:{Saved_from_Death:1b}}}] run kill
 
 
 
