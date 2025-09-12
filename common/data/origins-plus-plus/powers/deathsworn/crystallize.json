@@ -12,6 +12,13 @@
 				}
 			},
 			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
+				"command":"tag @s add Heart_Search"
+				}
+			},
+			{
 			"type":"origins:actor_action",
 			"action":{
 				"type":"origins:execute_command",

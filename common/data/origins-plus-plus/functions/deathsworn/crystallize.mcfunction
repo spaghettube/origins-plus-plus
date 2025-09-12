@@ -75,7 +75,7 @@ execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run 
 
 
 #setup for cleaning minion and item if its not picked up
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run summon minecraft:armor_stand ~ ~ ~ {Tags:["Living_Placeholder"],Invisible:false,Marker:true,Invulnerable:true}
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run summon minecraft:armor_stand ~ ~ ~ {Tags:["Living_Placeholder"],Invisible:true,Marker:true,Invulnerable:true}
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Minion_Count run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] Minion_Count
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Owner_UUID0 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] Owner_UUID0
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Owner_UUID1 run scoreboard players get @a[tag=Crystallize_Actor,sort=nearest,limit=1] Owner_UUID1

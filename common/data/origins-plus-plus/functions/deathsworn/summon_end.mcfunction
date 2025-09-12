@@ -2,8 +2,7 @@ team join deathsworn
 tag @s remove Standby_Minion
 tag @s add Deathsworn_Minion
 tag @s remove Appraisal_Name
-power remove @s origins-plus-plus:deathsworn/death_timer_long
-power remove @s origins-plus-plus:deathsworn/death_timer_short
+tag @s remove Heart_Found
 data modify entity @s NoAI set value false
 data modify entity @s Invulnerable set value false
 data modify entity @s PersistenceRequired set value false

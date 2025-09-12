@@ -15,6 +15,13 @@
 			"type":"origins:target_action",
 			"action":{
 				"type":"origins:execute_command",
+				"command":"tag @s add Heart_Search"
+				}
+			},
+			{
+			"type":"origins:target_action",
+			"action":{
+				"type":"origins:execute_command",
 				"command":"power grant @s origins-plus-plus:deathsworn/death_timer_long"
 				}
 			},

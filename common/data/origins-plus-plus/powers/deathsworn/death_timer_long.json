@@ -1,18 +1,14 @@
 {
 	"type":"origins:action_over_time",
 	"hidden":true,
-	"loading_priority":15,
+	"loading_priority":16,
 	"interval":60,
 	"entity_action":{
 		"type":"origins:and",
 		"actions":[
 			{
 			"type":"origins:execute_command",
-			"command":"say supposedly killed"
-			},
-			{
-			"type":"origins:execute_command",
-			"command":"execute at @a[team=deathsworn] if score @s Owner_UUID0 = @a[team=deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID0 if score @s Owner_UUID1 = @a[team=deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID1 as @a[team=deathsworn,distance=..0.1,sort=nearest] run function origins-plus-plus:deathsworn/clear"
+			"command":"say killed"
 			},
 			{
 			"type":"origins:execute_command",
@@ -24,16 +20,12 @@
 			},
 			{
 			"type":"origins:execute_command",
-			"command":"execute if entity @s[tag=Heart_Found] run say but heart was found"
+			"command":"execute if entity @s[tag=Heart_Found] run say nvm im alive"
 			},
 			{
 			"type":"origins:execute_command",
 			"command":"power remove @s origins-plus-plus:deathsworn/death_timer_long"
-			},
-			{
-			"type":"origins:execute_command",
-			"command":"execute if entity @s[tag=Heart_Found] run tag @s remove Heart_Found"
-			}		
+			}	
 		]
 	}
 }
