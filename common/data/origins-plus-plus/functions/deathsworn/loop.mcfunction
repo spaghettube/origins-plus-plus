@@ -17,6 +17,9 @@ execute if entity @a[team=deathsworn] as @e[tag=Living_Placeholder] at @s unless
 #for minions with Heart_Search, within the time limit defined by each minion's power, search every tick for the heart in the players' inventory and toggle the need to kill the minion. do this every tick for mod compat, for example backpack mods. if found remove Heart_Search, add Heart_Found
 execute if entity @a[team=deathsworn] as @e[tag=Heart_Search,tag=Standby_Minion] at @a[team=deathsworn] if score @s Owner_UUID0 = @a[team=deathsworn,limit=1,sort=nearest,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[team=deathsworn,limit=1,sort=nearest,distance=..0.1] Owner_UUID1 at @a[team=deathsworn,limit=1,sort=nearest,distance=..0.1] run function origins-plus-plus:deathsworn/clear
 
+#if a player's origin changes, kill the minions
+execute if entity @a[team=!deathsworn] at @a[team=!deathsworn] as @e[tag=Standby_Minion] if score @s Owner_UUID0 = @a[team=!deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID0 if score @s Owner_UUID1 = @a[team=!deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID1 run kill
+execute if entity @a[team=!deathsworn] at @a[team=!deathsworn] as @e[tag=Deathsworn_Minion] if score @s Owner_UUID0 = @a[team=!deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID0 if score @s Owner_UUID1 = @a[team=!deathsworn,limit=1,distance=..0.1,sort=nearest] Owner_UUID1 run kill
 
 
 #in case the tag wasnt cleared

@@ -8,7 +8,7 @@
 		"actions":[
 			{
 			"type":"origins:execute_command",
-			"command":"say killed"
+			"command":"execute if entity @s[tag=!Heart_Found,tag=!Deathsworn_Minion] run say deathrow"
 			},
 			{
 			"type":"origins:execute_command",
@@ -20,7 +20,7 @@
 			},
 			{
 			"type":"origins:execute_command",
-			"command":"execute if entity @s[tag=Heart_Found] run say nvm im alive"
+			"command":"execute if entity @s[tag=Heart_Found] run say saved from deathrow"
 			},
 			{
 			"type":"origins:execute_command",

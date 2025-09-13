@@ -1,6 +1,6 @@
 {
 	"type":"origins:prevent_death",
-	"loading_priority":15,
+	"loading_priority":16,
 	"entity_action":{
 		"type":"origins:execute_command",
 		"command":"tag @s add Deathsworn_Prevent_Death"
@@ -14,10 +14,9 @@
 	"damage_condition":{
 		"type":"origins:attacker",
 		"entity_condition":{
-			"type":"origins:command",
-			"command":"execute if entity @s[team=deathsworn]",
-			"comparison":"==",
-			"compare_to":1
+			"type":"origins:origin",
+			"origin":"origins-plus-plus:deathsworn",
+			"layer":"origins:origin"
 		}
 	}
 }
