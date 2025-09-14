@@ -16,6 +16,32 @@ power grant @s origins-plus-plus:deathsworn/crystallize
 execute unless entity @s[tag=Player_Minion] run data modify entity @s ArmorDropChances set value [1.0F,1.0F,1.0F,1.0F]
 execute unless entity @s[tag=Player_Minion] run data modify entity @s HandDropChances set value [1.0F,1.0F]
 
+#check what pieces the mob has, for the purpose of dropping in case the minion picks it up
+data modify entity @s ArmorDropChances set value [1.0F,1.0F,1.0F,1.0F]
+execute if data entity @s[tag=!Player_Minion] ArmorItems[3] unless data entity @s[tag=!Player_Minion] ArmorItems[2] unless data entity @s[tag=!Player_Minion] ArmorItems[1] unless data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [1.0F,1.0F,1.0F,0.0F]
+execute if data entity @s[tag=!Player_Minion] ArmorItems[3] unless data entity @s[tag=!Player_Minion] ArmorItems[2] unless data entity @s[tag=!Player_Minion] ArmorItems[1] if data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [0.0F,1.0F,1.0F,0.0F]
+execute if data entity @s[tag=!Player_Minion] ArmorItems[3] unless data entity @s[tag=!Player_Minion] ArmorItems[2] if data entity @s[tag=!Player_Minion] ArmorItems[1] unless data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [1.0F,0.0F,1.0F,0.0F]
+execute if data entity @s[tag=!Player_Minion] ArmorItems[3] unless data entity @s[tag=!Player_Minion] ArmorItems[2] if data entity @s[tag=!Player_Minion] ArmorItems[1] if data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [0.0F,0.0F,1.0F,0.0F]
+execute if data entity @s[tag=!Player_Minion] ArmorItems[3] if data entity @s[tag=!Player_Minion] ArmorItems[2] unless data entity @s[tag=!Player_Minion] ArmorItems[1] unless data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [1.0F,1.0F,0.0F,0.0F]
+execute if data entity @s[tag=!Player_Minion] ArmorItems[3] if data entity @s[tag=!Player_Minion] ArmorItems[2] unless data entity @s[tag=!Player_Minion] ArmorItems[1] if data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [0.0F,1.0F,0.0F,0.0F]
+execute if data entity @s[tag=!Player_Minion] ArmorItems[3] if data entity @s[tag=!Player_Minion] ArmorItems[2] if data entity @s[tag=!Player_Minion] ArmorItems[1] unless data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [1.0F,0.0F,0.0F,0.0F]
+execute if data entity @s[tag=!Player_Minion] ArmorItems[3] if data entity @s[tag=!Player_Minion] ArmorItems[2] if data entity @s[tag=!Player_Minion] ArmorItems[1] if data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [0.0F,0.0F,0.0F,0.0F]
+execute unless data entity @s[tag=!Player_Minion] ArmorItems[3] unless data entity @s[tag=!Player_Minion] ArmorItems[2] unless data entity @s[tag=!Player_Minion] ArmorItems[1] unless data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [1.0F,1.0F,1.0F,1.0F]
+execute unless data entity @s[tag=!Player_Minion] ArmorItems[3] unless data entity @s[tag=!Player_Minion] ArmorItems[2] unless data entity @s[tag=!Player_Minion] ArmorItems[1] if data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [0.0F,1.0F,1.0F,1.0F]
+execute unless data entity @s[tag=!Player_Minion] ArmorItems[3] unless data entity @s[tag=!Player_Minion] ArmorItems[2] if data entity @s[tag=!Player_Minion] ArmorItems[1] unless data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [1.0F,0.0F,1.0F,1.0F]
+execute unless data entity @s[tag=!Player_Minion] ArmorItems[3] unless data entity @s[tag=!Player_Minion] ArmorItems[2] if data entity @s[tag=!Player_Minion] ArmorItems[1] if data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [0.0F,0.0F,1.0F,1.0F]
+execute unless data entity @s[tag=!Player_Minion] ArmorItems[3] if data entity @s[tag=!Player_Minion] ArmorItems[2] unless data entity @s[tag=!Player_Minion] ArmorItems[1] unless data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [1.0F,1.0F,0.0F,1.0F]
+execute unless data entity @s[tag=!Player_Minion] ArmorItems[3] if data entity @s[tag=!Player_Minion] ArmorItems[2] unless data entity @s[tag=!Player_Minion] ArmorItems[1] if data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [0.0F,1.0F,0.0F,1.0F]
+execute unless data entity @s[tag=!Player_Minion] ArmorItems[3] if data entity @s[tag=!Player_Minion] ArmorItems[2] if data entity @s[tag=!Player_Minion] ArmorItems[1] unless data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [1.0F,0.0F,0.0F,1.0F]
+execute unless data entity @s[tag=!Player_Minion] ArmorItems[3] if data entity @s[tag=!Player_Minion] ArmorItems[2] if data entity @s[tag=!Player_Minion] ArmorItems[1] if data entity @s[tag=!Player_Minion] ArmorItems[0] run data modify entity @s ArmorDropChances set value [0.0F,0.0F,0.0F,1.0F]
+
+
+#check what weapons the mob has, for the purpose of dropping in case the minion picks it up
+execute if data entity @s[tag=!Player_Minion] HandItems[0] unless data entity @s[tag=!Player_Minion] HandItems[1] run data modify entity @s HandDropChances set value [0.0F,1.0F]
+execute unless data entity @s[tag=!Player_Minion] HandItems[0] if data entity @s[tag=!Player_Minion] HandItems[1] run data modify entity @s HandDropChances set value [1.0F,0.0F]
+execute unless data entity @s[tag=!Player_Minion] HandItems[0] unless data entity @s[tag=!Player_Minion] HandItems[1] run data modify entity @s HandDropChances set value [1.0F,1.0F]
+execute if data entity @s[tag=!Player_Minion] HandItems[0] if data entity @s[tag=!Player_Minion] HandItems[1] run data modify entity @s HandDropChances set value [0.0F,0.0F]
+
 #handle effects
 effect clear @s minecraft:regeneration
 effect clear @s minecraft:wither

@@ -63,6 +63,9 @@ effect clear @s minecraft:regeneration
 effect clear @s minecraft:wither
 effect clear @s minecraft:poison
 
+#kill armor stand in case another player dies in the same tick
+execute as @e[tag=Matched_Deathsworn_Armor_Stand] if score @s Killed_UUID0 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1] Killed_UUID0 if score @s Killed_UUID1 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1] Killed_UUID1 run kill
+
 #just first and second is more than enough to track
 execute as @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result score @s Owner_UUID0 run data get entity @s UUID[0]
 execute as @a[tag=Crystallize_Actor,sort=nearest,limit=1] store result score @s Owner_UUID1 run data get entity @s UUID[1]
