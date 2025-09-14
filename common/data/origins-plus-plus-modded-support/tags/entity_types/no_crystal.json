@@ -942,19 +942,7 @@
 		"required":false
 	},
 	{
-		"id":"wandering_orc:spriggan",
-		"required":false
-	},
-	{
 		"id":"wandering_orc:spriggan_projectile",
-		"required":false
-	},
-	{
-		"id":"wandering_orc:treant",
-		"required":false
-	},
-	{
-		"id":"wandering_orc:troll_doctor",
 		"required":false
 	},
 	{

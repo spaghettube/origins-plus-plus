@@ -1,6 +1,6 @@
 {
 	"type":"origins:action_on_hit",
-	"loading_priority":15,
+	"loading_priority":16,
 	"bientity_action":{
 		"type":"origins:and",
 		"actions":[
