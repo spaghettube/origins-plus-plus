@@ -106,9 +106,4 @@ execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run 
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run data merge entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] {Item:{tag:{Saved_from_Death:1b}}}
 
 #setup for cleaning minion and item if its not picked up
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run summon minecraft:armor_stand ~ ~ ~ {Tags:["Living_Placeholder"],Invisible:true,Marker:true,Invulnerable:true}
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Minion_Count run scoreboard players get @s Minion_Count
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Owner_UUID0 run scoreboard players get @s Owner_UUID0
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Owner_UUID1 run scoreboard players get @s Owner_UUID1
-
-execute as @a[tag=Deathsworn_Killed_Player,sort=nearest,limit=1] run tag @s remove Deathsworn_Killed_Player
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ as @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] at @s run function origins-plus-plus:deathsworn/living_placeholder
