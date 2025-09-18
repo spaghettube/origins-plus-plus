@@ -2,7 +2,7 @@
 execute if entity @s[type=item] store result score @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID0_temp run data get entity @s Thrower[0]
 execute if entity @s[type=item] store result score @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID1_temp run data get entity @s Thrower[1]
 execute if entity @s[type=item] store result score @a[sort=nearest,limit=1,distance=..0.1] Minion_Count_temp run data get entity @s Item.tag.Minion_Count
-execute if entity @s[type=item] as @e[tag=Standby_Minion] if score @s Minion_Count = @a[sort=nearest,limit=1,distance=..0.1] Minion_Count_temp if score @s Owner_UUID0 = @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID1 run say killed
+execute if entity @s[type=item] as @e[tag=Standby_Minion] if score @s Minion_Count = @a[sort=nearest,limit=1,distance=..0.1] Minion_Count_temp if score @s Owner_UUID0 = @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID1 run say killed by drop
 execute if entity @s[type=item] as @e[tag=Standby_Minion] if score @s Minion_Count = @a[sort=nearest,limit=1,distance=..0.1] Minion_Count_temp if score @s Owner_UUID0 = @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID1 run kill
 execute if entity @s[type=item] run scoreboard players reset @a[sort=nearest,limit=1,distance=..0.1] Minion_Count_temp
 execute if entity @s[type=item] run scoreboard players reset @a[sort=nearest,limit=1,distance=..0.1] Owner_UUID0_temp

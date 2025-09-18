@@ -2,7 +2,7 @@
 	"type":"origins:action_over_time",
 	"hidden":true,
 	"loading_priority":16,
-	"interval":60,
+	"interval":600,
 	"entity_action":{
 		"type":"origins:and",
 		"actions":[

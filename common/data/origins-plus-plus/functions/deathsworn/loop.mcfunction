@@ -5,14 +5,14 @@ execute if entity @a[team=deathsworn] as @e[tag=Deathsworn_Minion] at @s run par
 execute as @a[team=deathsworn] at @s if score @s Owner_UUID0 = @e[tag=Standby_Minion,limit=1] Owner_UUID0 if score @s Owner_UUID1 = @e[tag=Standby_Minion,limit=1] Owner_UUID1 run tp @e[tag=Standby_Minion] ~ -70 ~
 
 
+#clone living placeholder every tick, way more reliable than using a tp based method
+kill @e[tag=Living_Placeholder]
+execute if entity @a[team=deathsworn] as @e[type=item,tag=Petrified_Heart] at @s run function origins-plus-plus:deathsworn/living_placeholder
+
 #clear dropped hearts
-execute if entity @a[team=deathsworn] as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity @s Thrower if data entity @s Thrower if data entity @s Item.tag{Saved_from_Death:0b} at @a[team=deathsworn,sort=nearest,limit=1] run function origins-plus-plus:deathsworn/clear
+execute if entity @a[team=deathsworn] as @e[type=item] at @a[team=deathsworn] if data entity @s Item.tag.Minion_Count if data entity @s {Thrower:[I;0,0,0,0]} run function origins-plus-plus:deathsworn/clear
 execute if entity @a[team=deathsworn] as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity @s Thrower if data entity @s Item.tag{Saved_from_Death:1b} run data merge entity @s {Thrower:[I;0,0,0,0]}
 execute if entity @a[team=deathsworn] as @e[type=item] if data entity @s Item.tag.Minion_Count if data entity @s {Thrower:[I;0,0,0,0]} run data merge entity @s {Item:{tag:{Saved_from_Death:0b}}}
-
-#in case item dies, clear minions with no heart
-execute if entity @a[team=deathsworn] as @e[tag=Living_Placeholder] at @s run tp @s @e[type=item,distance=..1,sort=nearest,nbt={Item:{tag:{Saved_from_Death:1b}}},limit=1]
-execute if entity @a[team=deathsworn] as @e[tag=Living_Placeholder] at @s unless entity @e[type=item,distance=..0.1,sort=nearest,nbt={Item:{tag:{Saved_from_Death:1b}}}] run kill
 
 #for minions with Heart_Search, within the time limit defined by each minion's power, search every tick for the heart in the players' inventory and toggle the need to kill the minion. do this every tick for mod compat, for example backpack mods. if found remove Heart_Search, add Heart_Found
 execute if entity @a[team=deathsworn] as @e[tag=Heart_Search,tag=Standby_Minion] at @a[team=deathsworn] if score @s Owner_UUID0 = @a[team=deathsworn,limit=1,sort=nearest,distance=..0.1] Owner_UUID0 if score @s Owner_UUID1 = @a[team=deathsworn,limit=1,sort=nearest,distance=..0.1] Owner_UUID1 at @a[team=deathsworn,limit=1,sort=nearest,distance=..0.1] run function origins-plus-plus:deathsworn/clear
