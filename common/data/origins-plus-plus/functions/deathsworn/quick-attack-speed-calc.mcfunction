@@ -39,7 +39,7 @@ data remove storage origins-plus-plus:deathsworn pos2
 execute store result score @a[tag=Quick_Attack_Actor,limit=1] Minion_Count_temp run data get entity @a[tag=Quick_Attack_Actor,limit=1] SelectedItem.tag.Minion_Count
 execute as @e[tag=Standby_Minion] if score @s Minion_Count = @a[tag=Quick_Attack_Actor,limit=1] Minion_Count_temp if score @s Owner_UUID0 = @a[tag=Quick_Attack_Actor,limit=1] Owner_UUID0 if score @s Owner_UUID1 = @a[tag=Quick_Attack_Actor,limit=1] Owner_UUID1 run function origins-plus-plus:deathsworn/quick-attack-launch-minion
 
-say should end here
-
 execute as @a[tag=Quick_Attack_Actor,limit=1,sort=nearest] run tag @s add Skip_Quick_Attack
 execute as @a[tag=Skip_Quick_Attack,limit=1,sort=nearest] run tag @s remove Quick_Attack_Actor
+
+#ignore this -- say should end here

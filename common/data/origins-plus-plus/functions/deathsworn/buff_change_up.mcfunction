@@ -6,5 +6,3 @@ execute at @s run playsound minecraft:entity.ravager.celebrate hostile @a[distan
 power grant @s origins-plus-plus:deathsworn/buff_change_atk
 power grant @s origins-plus-plus:deathsworn/buff_change_max_health
 power grant @s origins-plus-plus:deathsworn/buff_change_toughness
-
-say buffing me

@@ -1,6 +1,5 @@
 {
 	"type":"origins:prevent_death",
-	"loading_priority":14,
 	"entity_action":{
 		"type":"origins:and",
 		"actions":[

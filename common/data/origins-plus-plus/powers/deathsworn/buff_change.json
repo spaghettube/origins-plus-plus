@@ -1,7 +1,6 @@
 {
 	"type":"origins:multiple",
 	"hidden":true,
-	"loading_priority":14,
 	"atk":{
 		"type":"origins:modify_attribute",
 		"attribute":"minecraft:generic.attack_damage",

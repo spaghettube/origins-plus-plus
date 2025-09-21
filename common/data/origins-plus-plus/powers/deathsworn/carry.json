@@ -1,6 +1,5 @@
 {
 	"type":"origins:action_on_entity_use",	
-	"loading_priority":15,
 	"bientity_action":{
 		"type":"origins:and",
 		"actions":[

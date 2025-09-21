@@ -17,9 +17,4 @@ execute as @e[tag=Deathsworn_Marker,limit=1] if data storage origins-plus-plus:d
 execute as @e[tag=Deathsworn_Marker,limit=1] if data storage origins-plus-plus:deathsworn pos1 unless data storage origins-plus-plus:deathsworn pos2 run function origins-plus-plus:deathsworn/quick-attack-store-pos
 execute as @e[tag=Deathsworn_Marker,limit=1] unless data storage origins-plus-plus:deathsworn pos2 unless data storage origins-plus-plus:deathsworn pos1 run function origins-plus-plus:deathsworn/quick-attack-store-pos
 
-say id
-
-#execute if data storage origins-plus-plus:deathsworn pos1 run data modify storage origins-plus-plus:deathsworn temppos1 set from storage origins-plus-plus:deathsworn pos1
-#data remove storage origins-plus-plus:deathsworn pos1
-
 execute as @e[tag=Deathsworn_Marker,limit=1] run kill

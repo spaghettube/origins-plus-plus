@@ -27,7 +27,6 @@ data remove entity @s HandItems[1]
 
 #match the stored inventory to the player minion
 execute at @s as @e[tag=Deathsworn_Armor_Stand,sort=nearest,limit=1] if score @s Killed_UUID0 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1,sort=nearest] Killed_UUID0 if score @s Killed_UUID1 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1,sort=nearest] Killed_UUID1 run tag @s add Matched_Deathsworn_Armor_Stand
-execute as @e[tag=Matched_Deathsworn_Armor_Stand] if score @s Killed_UUID0 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1] Killed_UUID0 if score @s Killed_UUID1 = @e[tag=!Geared_Player_Minion,tag=Player_Minion,limit=1] Killed_UUID1 run say matched ids
 
 #check what pieces the player has, except helmet, for the purpose of dropping armor in case the minion picks it up
 data modify entity @s ArmorDropChances set value [1.0F,1.0F,1.0F,1.0F]
@@ -106,4 +105,9 @@ execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run 
 execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run data merge entity @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] {Item:{tag:{Saved_from_Death:1b}}}
 
 #setup for cleaning minion and item if its not picked up
-execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ as @e[tag=Petrified_Heart,distance=..0.1,sort=nearest,limit=1] at @s run function origins-plus-plus:deathsworn/living_placeholder
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ run summon minecraft:armor_stand ~ ~ ~ {Tags:["Living_Placeholder"],Invisible:true,Marker:true,Invulnerable:true}
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Minion_Count run scoreboard players get @s Minion_Count
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Owner_UUID0 run scoreboard players get @s Owner_UUID0
+execute at @a[tag=Crystallize_Actor,sort=nearest,limit=1] positioned ~ ~1 ~ store result score @e[tag=Living_Placeholder,sort=nearest,limit=1] Owner_UUID1 run scoreboard players get @s Owner_UUID1
+
+execute as @a[tag=Deathsworn_Killed_Player,sort=nearest,limit=1] run tag @s remove Deathsworn_Killed_Player

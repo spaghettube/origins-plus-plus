@@ -10,5 +10,3 @@ execute at @s run playsound minecraft:entity.zombie_villager.cure hostile @a[dis
 power revoke @s origins-plus-plus:deathsworn/buff_change_atk
 power revoke @s origins-plus-plus:deathsworn/buff_change_max_health
 power revoke @s origins-plus-plus:deathsworn/buff_change_toughness
-
-say unbuffing me

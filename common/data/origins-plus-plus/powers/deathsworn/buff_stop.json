@@ -1,6 +1,5 @@
 {
 	"type":"origins:action_over_time",
-	"loading_priority":14,
 	"interval":2,
 	"hidden":true,
 	"entity_action":{
