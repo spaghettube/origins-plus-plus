@@ -1,8 +1,9 @@
 {
 	"values":[
-		"minecraft:end_rod",
+		"minecraft:lantern",
 		"minecraft:glowstone",
-		"minecraft:shroomlight",
+		"minecraft:redstone_lamp",
+		"minecraft:redstone_torch",
 		"minecraft:torch",
 		"minecraft:wall_torch"
 	]

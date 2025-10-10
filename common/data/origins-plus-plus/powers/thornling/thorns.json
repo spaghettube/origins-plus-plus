@@ -59,6 +59,9 @@
 				}
 			]
 		},
+		"damage_condition":{
+			"type":"origins:attacker"
+		},
 		"condition":{
 			"type":"origins:resource",
 			"resource":"*:*_resource",
