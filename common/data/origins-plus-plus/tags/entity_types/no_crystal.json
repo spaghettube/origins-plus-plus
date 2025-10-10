@@ -10,6 +10,10 @@
 		"required":false
 		},
 		{
+		"id":"#forge:bosses",
+		"required":false
+		},
+		{
 		"id":"#origins-plus-plus-modded-support:no_crystal",
 		"required":false
 		}
