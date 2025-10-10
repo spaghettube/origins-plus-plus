@@ -8,6 +8,7 @@
 	"container.spirit-ram.title":"Horn Pocket",
 	"container.wanderer.title":"Travel Pouch",
 	"container.warper.title":"\"Ender Chest\"",
+	"container.withered_fox.title":"Mouth Storage",
 	"origin.origins-plus-plus.alien_axolotl.description":"You are an alien who reveres the Golden Space Gods and has crash-landed onto this planet.",
 	"origin.origins-plus-plus.alien_axolotl.name":"Alien Axolotl",
 	"origin.origins-plus-plus.anomaly.description":"Once an ancient star, you now exist as an unstable form of pure energy.",
@@ -2455,4 +2456,5 @@
 	"power.origins-plus-plus.zero-aizawa/tall.name":"Tall",
 	"power.origins-plus-plus.zero-aizawa/weak_stature.description":"Because your arms are weak, you cannot really wear netherite armor and so are afflicted with Slowness II when wearing it.",
 	"power.origins-plus-plus.zero-aizawa/weak_stature.name":"Weak Stature"
+
 }
